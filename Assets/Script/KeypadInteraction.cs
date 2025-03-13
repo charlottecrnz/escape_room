@@ -1,15 +1,20 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class KeypadInteraction : MonoBehaviour
 {
     [SerializeField] private TMP_Text ecran; 
     [SerializeField] private string codeCorrect = "2506"; 
     [SerializeField] private GameObject porte; 
-    [SerializeField] private float vitesseOuverture = 2f; 
+    [SerializeField] private float vitesseOuverture = 1.5f; 
 
     private string codeEntré = "";
+
+    private void Start() {
+        //Debug.Log("script activé");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +30,7 @@ public class KeypadInteraction : MonoBehaviour
 
     private void AjouterChiffre(string chiffre)
     {
-        if (codeEntré.Length < 4)
+        if (codeEntré.Length < 5)
         {
             codeEntré += chiffre;
             ecran.text = codeEntré;
@@ -55,16 +60,16 @@ public class KeypadInteraction : MonoBehaviour
     private IEnumerator OuvrirPorte()
     {
         float temps = 0f;
-        Vector3 positionInitiale = porte.transform.position;
-        Vector3 positionFinale = positionInitiale + Vector3.up * 3f; 
+        Quaternion rotationInitiale = porte.transform.rotation;
+        Quaternion rotationFinale = Quaternion.Euler(0f, -90f, 0f); 
 
         while (temps < 1f)
         {
-            porte.transform.position = Vector3.Lerp(positionInitiale, positionFinale, temps);
+            porte.transform.rotation = Quaternion.Lerp(rotationInitiale, rotationFinale, temps);
             temps += Time.deltaTime * vitesseOuverture;
             yield return null;
         }
 
-        porte.transform.position = positionFinale;
+        porte.transform.rotation = rotationFinale;
     }
 } 

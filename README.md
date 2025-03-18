@@ -15,11 +15,11 @@ Pour utiliser ce projet, il faut :
 
 ## Intéraction
 
-##### Déplacement
+### Déplacement
 
 Pour se déplacer, le joueur peut se téléporter. Pour cela, il peut utiliser le joystick de la manette droite. Une zone de téléportation apparaît (zone grise = téléportation possible, zone rouge = téléportation impossible). Le joueur peut se déplacer dans toute la pièce.
 
-##### Saisie des objets
+### Saisie des objets
 
 Pour attraper des objets, le joueur peut :
 - soit utiliser le bouton grip de la manette gauche (situé sur le côté de la manette) lorsqu'il est proche de l'objet;
@@ -29,8 +29,8 @@ Tous les objets ne sont pas saisissables, certains objets font uniquement parti 
 
 ## Dépendances et paramètres
 
-Version d'Unity : [6.0.38f1][unityversion]
-Version de l'XR Interaction Toolkit : 3.0.7
+Version d'Unity : [6.0.38f1][unityversion] \
+Version de l'XR Interaction Toolkit : 3.0.7 \
 Le projet est réalisé et testé avec un Meta Quest 3.
 
 ## Assets utilisés
@@ -50,7 +50,7 @@ La suite du projet serait de créer d'autres pièces afin d'avoir d'autres énig
 
 ---
 
-# The Project
+## The Project
 
 The goal of this project is to create a virtual reality escape room using Unity. Currently, the project features a single room with one puzzle.
 
@@ -62,10 +62,10 @@ To play this project, you need to:
 - Build it to your VR headset.
 
 ## Interaction
-##### Teleport
+### Teleport
 To move around, the player can teleport using the right controller's joystick. A teleportation zone appears (gray zone = teleportation possible, red zone = teleportation not possible). The player can move freely within the room.
 
-##### Grab
+### Grab
 
 To grab objects, the player can:
 - Use the grip button on the left controller (located on the side of the controller) when close to the object;
@@ -75,8 +75,8 @@ Not all objects are interactable; some are purely decorative.
 
 # Dependencies and Settings
 
-Unity Version: [6.0.38f1][unityversion]
-XR Interaction Toolkit Version: 3.0.7
+Unity Version: [6.0.38f1][unityversion] \
+XR Interaction Toolkit Version: 3.0.7 \
 The project is developed and tested with a Meta Quest 3.
 
 # Assets Used

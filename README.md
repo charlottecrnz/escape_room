@@ -73,13 +73,14 @@ To grab objects, the player can:
 
 Not all objects are interactable; some are purely decorative.
 
-# Dependencies and Settings
+## Dependencies and Settings
 
 Unity Version: [6.0.38f1][unityversion] \
 XR Interaction Toolkit Version: 3.0.7 \
 The project is developed and tested with a Meta Quest 3.
 
-# Assets Used
+
+## Assets Used
 
 - Door: [Free Wood Door Pack][porte]
 - Trash Bin: [Trash Bin][poubelle]
@@ -88,9 +89,9 @@ The project is developed and tested with a Meta Quest 3.
 - Books: [QA Books][livres]
 - Keypad: [Keypad FREE][keypad]
 
-# Step 1: A Single Room with One Puzzle
+## Step 1: A Single Room with One Puzzle
 
-# Next Steps: Creating Additional Rooms
+## Next Steps: Creating Additional Rooms
 
 The next phase of the project is to develop more rooms with additional puzzles, making the escape game more complete.
 

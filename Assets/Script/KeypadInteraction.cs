@@ -9,11 +9,12 @@ public class KeypadInteraction : MonoBehaviour
     [SerializeField] private string codeCorrect = "2506"; 
     [SerializeField] private GameObject porte; 
     [SerializeField] private float vitesseOuverture = 1.5f; 
+    [SerializeField] private GameObject HiddenKP; 
 
     private string codeEntré = "";
 
     private void Start() {
-        //Debug.Log("script activé");
+        Debug.Log("KeyPad Interaction activé");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +49,7 @@ public class KeypadInteraction : MonoBehaviour
         {
             Debug.Log("Code correct ! Ouverture de la porte.");
             StartCoroutine(OuvrirPorte());
+            HiddenKP.SetActive(false);
         }
         else
         {

@@ -8,13 +8,20 @@ public class KeypadInteraction : MonoBehaviour
     [SerializeField] private TMP_Text ecran; 
     [SerializeField] private string codeCorrect = "2506"; 
     [SerializeField] private GameObject porte; 
-    [SerializeField] private float vitesseOuverture = 1.5f; 
-    [SerializeField] private GameObject HiddenKP; 
+    [SerializeField] private float vitesseOuverture = 1.5f;  
+    [SerializeField] private GameObject Display;
+    [SerializeField] private Material blue;
+    [SerializeField] private Material green;
+    [SerializeField] private Material red;
+
+
 
     private string codeEntré = "";
 
     private void Start() {
         Debug.Log("KeyPad Interaction activé");
+        Display.GetComponent<Renderer>().material = blue;
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +42,7 @@ public class KeypadInteraction : MonoBehaviour
         {
             codeEntré += chiffre;
             ecran.text = codeEntré;
+            Display.GetComponent<Renderer>().material = blue;
         }
 
         if (codeEntré.Length == 4)
@@ -49,13 +57,16 @@ public class KeypadInteraction : MonoBehaviour
         {
             Debug.Log("Code correct ! Ouverture de la porte.");
             StartCoroutine(OuvrirPorte());
-            HiddenKP.SetActive(false);
+            Display.GetComponent<Renderer>().material = green;
+            ecran.text = codeCorrect ;
+
         }
         else
         {
             Debug.Log("Code incorrect.");
             codeEntré = "";
             ecran.text = "";
+            Display.GetComponent<Renderer>().material = red;
         }
     }
 

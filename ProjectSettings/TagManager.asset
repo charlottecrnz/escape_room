@@ -17,6 +17,7 @@ TagManager:
   - 9
   - Bouton
   - Manette
+  - Drawer
   layers:
   - Default
   - TransparentFX

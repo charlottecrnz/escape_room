@@ -13,24 +13,24 @@ public class KeypadInteraction : MonoBehaviour
     [SerializeField] private Material blue;
     [SerializeField] private Material green;
     [SerializeField] private Material red;
-
-
+    [SerializeField] private AudioSource audioSource ;
+    [SerializeField] private AudioClip OpenDoor ;
+    [SerializeField] private AudioClip PushBouton ;
 
     private string codeEntré = "";
+    private bool codeValide = false; // Empêche l'entrée après validation
 
     private void Start() {
         Debug.Log("KeyPad Interaction activé");
         Display.GetComponent<Renderer>().material = blue;
-       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Collision détectée avec : {other.gameObject.name} - Tag : {other.tag}");
-        Debug.Log("OnTriggerEnter");
+        if (codeValide) return; // Si le code est validé, ignorer toute entrée
+
         if (other.CompareTag("Bouton"))
         {
-            Debug.Log(other.gameObject.name);
             string chiffre = other.gameObject.name; 
             AjouterChiffre(chiffre);
         }
@@ -38,11 +38,14 @@ public class KeypadInteraction : MonoBehaviour
 
     private void AjouterChiffre(string chiffre)
     {
-        if (codeEntré.Length < 5)
+        if (codeValide) return; // Vérifie à nouveau avant d'ajouter un chiffre
+        
+        if (codeEntré.Length < 4) // Correction de la condition (doit être 4 et pas 5)
         {
             codeEntré += chiffre;
             ecran.text = codeEntré;
             Display.GetComponent<Renderer>().material = blue;
+            audioSource.PlayOneShot(PushBouton);
         }
 
         if (codeEntré.Length == 4)
@@ -56,10 +59,10 @@ public class KeypadInteraction : MonoBehaviour
         if (codeEntré == codeCorrect)
         {
             Debug.Log("Code correct ! Ouverture de la porte.");
+            codeValide = true; // Empêche toute autre entrée
             StartCoroutine(OuvrirPorte());
             Display.GetComponent<Renderer>().material = green;
-            ecran.text = codeCorrect ;
-
+            ecran.text = codeCorrect;
         }
         else
         {
@@ -74,7 +77,8 @@ public class KeypadInteraction : MonoBehaviour
     {
         float temps = 0f;
         Quaternion rotationInitiale = porte.transform.rotation;
-        Quaternion rotationFinale = Quaternion.Euler(0f, -90f, 0f); 
+        Quaternion rotationFinale = Quaternion.Euler(0f, -90f, 0f);
+        audioSource.PlayOneShot(OpenDoor); 
 
         while (temps < 1f)
         {
@@ -85,4 +89,4 @@ public class KeypadInteraction : MonoBehaviour
 
         porte.transform.rotation = rotationFinale;
     }
-} 
+}

@@ -5,15 +5,17 @@ using System.Collections.Generic;
 
 public class OpenDrawer : MonoBehaviour
 {
-    public Transform drawer;  
-    public Vector3 openPosition; 
-    public Vector3 closedPosition;  
-    public float openSpeed = 2f;  
-
-    private bool isOpen = false;
-    private InputDevice targetDevice;
-    private bool isCoroutineRunning = false;
-    private bool isControllerNear = false; // Pour détecter si la manette est proche
+    [SerializeField] public Transform drawer;  
+    [SerializeField] public Vector3 openPosition; 
+    [SerializeField] public Vector3 closedPosition;  
+    [SerializeField] public float openSpeed = 0.5f;  
+    [SerializeField] private bool isOpen = false;
+    [SerializeField] private InputDevice targetDevice;
+    [SerializeField] private bool isCoroutineRunning = false;
+    [SerializeField] private bool isControllerNear = false; // Pour détecter si la manette est proche
+    [SerializeField] private AudioSource audioSource1; // Référence à l'AudioSource
+    [SerializeField] private AudioClip DrawerOpen; // Le son à jouer
+    [SerializeField] private AudioClip DrawerClose;
 
     void Start()
     {
@@ -70,10 +72,12 @@ public class OpenDrawer : MonoBehaviour
     {
         isOpen = true;
         isCoroutineRunning = true;
+        audioSource1.PlayOneShot(DrawerOpen);
         
         while (Vector3.Distance(drawer.localPosition, openPosition) > 0.01f)
         {
             drawer.localPosition = Vector3.MoveTowards(drawer.localPosition, openPosition, openSpeed * Time.deltaTime);
+            
             yield return null;
         }
         
@@ -84,13 +88,17 @@ public class OpenDrawer : MonoBehaviour
     {
         isOpen = false;
         isCoroutineRunning = true;
+        audioSource1.PlayOneShot(DrawerClose);
 
         while (Vector3.Distance(drawer.localPosition, closedPosition) > 0.01f)
         {
             drawer.localPosition = Vector3.MoveTowards(drawer.localPosition, closedPosition, openSpeed * Time.deltaTime);
+            
             yield return null;
         }
 
         isCoroutineRunning = false;
     }
+
+
 }

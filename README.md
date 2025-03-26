@@ -90,7 +90,7 @@ Le projet est réalisé et testé avec un Meta Quest 3.
 
 ## Etape 1 : une seule pièce avec une énigme
 
-  La première pièce de l'escape game est une chambre. Pour sortir de cette chambre, il faut trouver le code qui permet d'ouvrir la porte.
+  La première pièce de l'escape game est une chambre. Pour sortir de cette chambre, il faut trouver le code qui permet d'ouvrir la porte. \
   Améliorations possibles :
   - Ajouter de l'audio
   - Améliorer la lumière pour la rendre plus réaliste
@@ -187,7 +187,7 @@ The project is developed and tested with a Meta Quest 3.
   
 
 ## Step 1: A Single Room with One Puzzle
-The first room of the escape game is a bedroom. To exit this room, you need to find the code that unlocks the door.
+The first room of the escape game is a bedroom. To exit this room, you need to find the code that unlocks the door. \
 Possible improvements:
 
 -   Add audio

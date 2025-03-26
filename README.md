@@ -97,7 +97,7 @@ Le projet est réalisé et testé avec un Meta Quest 3.
 ![](./Assets/Images/image3.png)
 ![](./Assets/Images/image4.png)
 ![](./Assets/Images/image5.png)
-![](./Assets/Images/image6.png) \
+![](./Assets/Images/image6.png) 
 
 Améliorations possibles :
   - Améliorer la lumière pour la rendre plus réaliste
@@ -201,7 +201,7 @@ The first room of the escape game is a bedroom. To exit this room, you need to f
 ![](./Assets/Images/image3.png)
 ![](./Assets/Images/image4.png)
 ![](./Assets/Images/image5.png)
-![](./Assets/Images/image6.png) \
+![](./Assets/Images/image6.png) 
 
 Possible improvements:
     

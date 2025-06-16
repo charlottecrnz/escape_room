@@ -5,6 +5,8 @@
 
 [English below ↓↓↓↓](#the-project)
 
+[En cours de création]
+
 ## Le projet
 
   
@@ -112,11 +114,11 @@ La suite du projet serait de créer d'autres pièces afin d'avoir d'autres énig
 
 ---
 
-  
+
 
 ## The Project
 
-  
+[In progress] 
 
 The goal of this project is to create a virtual reality escape room using Unity. Currently, the project features a single room with one puzzle.
 
